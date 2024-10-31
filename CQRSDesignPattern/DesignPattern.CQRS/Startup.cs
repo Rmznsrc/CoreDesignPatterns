@@ -29,6 +29,9 @@ namespace DesignPattern.CQRS
             services.AddDbContext<Context>();
             services.AddScoped<GetProductQueryHandler>();
             services.AddScoped<CreateProductCommandHandler>();
+            services.AddScoped<GetProductByIDQueryHandler>();
+            services.AddScoped<RemoveProductCommandHandler>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
