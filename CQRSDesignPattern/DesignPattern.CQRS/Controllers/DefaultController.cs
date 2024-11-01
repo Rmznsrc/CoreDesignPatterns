@@ -11,13 +11,16 @@ namespace DesignPattern.CQRS.Controllers
         private readonly CreateProductCommandHandler _createProductCommandHandler;
         private readonly GetProductByIDQueryHandler _getProductByIDQueryHandler;
         private readonly RemoveProductCommandHandler _removeProductCommandHandler;
-
-        public DefaultController(GetProductQueryHandler getProductQueryHandler, CreateProductCommandHandler createProductCommandHandler, GetProductByIDQueryHandler getProductByIDQueryHandler, RemoveProductCommandHandler removeProductCommandHandler)
+        private readonly GetProductUpdateByIDQueryHandler _getProductUpdateByIDQueryHandler;
+        private readonly UpdateProductCommandHandler _updateProductCommandHandler;
+        public DefaultController(GetProductQueryHandler getProductQueryHandler, CreateProductCommandHandler createProductCommandHandler, GetProductByIDQueryHandler getProductByIDQueryHandler, RemoveProductCommandHandler removeProductCommandHandler, GetProductUpdateByIDQueryHandler getProductUpdateByIDQueryHandler, UpdateProductCommandHandler updateProductCommandHandler)
         {
             _getProductQueryHandler = getProductQueryHandler;
             _createProductCommandHandler = createProductCommandHandler;
             _getProductByIDQueryHandler = getProductByIDQueryHandler;
             _removeProductCommandHandler = removeProductCommandHandler;
+            _getProductUpdateByIDQueryHandler = getProductUpdateByIDQueryHandler;
+            _updateProductCommandHandler = updateProductCommandHandler;
         }
 
         public IActionResult Index()
@@ -44,6 +47,17 @@ namespace DesignPattern.CQRS.Controllers
         public IActionResult DeleteProduct(int id)
         {
             _removeProductCommandHandler.Handle(new RemoveProductCommand(id));
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult UpdateProduct(int id)
+        {
+            var values = _getProductUpdateByIDQueryHandler.Handle(new GetProductUpdateByIDQuery(id));
+            return View(values);
+        }
+        public IActionResult UpdateProduct(UpdateProductCommand command)
+        {
+            _updateProductCommandHandler.Handle(command);
             return RedirectToAction("Index");
         }
     }
