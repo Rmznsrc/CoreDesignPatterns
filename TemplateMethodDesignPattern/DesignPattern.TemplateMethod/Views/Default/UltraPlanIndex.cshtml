@@ -1,9 +1,8 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
- 
+
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
 <div class="container">
@@ -13,7 +12,7 @@
     <h3>Plan Fiyatı: @ViewBag.v3</h3>
     <h3>Plan İçeriği: @ViewBag.v4</h3>
     <h3>Plan Çözünürlüğü: @ViewBag.v5</h3>
-   
+
+    <a href="/Default/BasicPlanIndex/" class="btn btn-danger">Temel Plan</a>
     <a href="/Default/StandardPlanIndex/" class="btn btn-warning">Standard Plan</a>
-    <a href="/Default/UltraPlanIndex/" class="btn btn-success">Ultra Plan</a>
 </div>
