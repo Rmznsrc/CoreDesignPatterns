@@ -1,8 +1,14 @@
+using DesignPattern.DataAccessLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
+opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+ 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
