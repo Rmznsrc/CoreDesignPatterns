@@ -13,6 +13,7 @@ namespace DesignPattern.DataAccessLayer.Abstract
         
         void Update(T t);
         List<T> GetList();
+        void GetByID(int id);
         void MultiUpdate(List<T> t);
     }
 }
