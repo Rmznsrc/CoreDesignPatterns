@@ -34,12 +34,22 @@ namespace DesignPattern.DataAccessLayer.EntityFramework
             throw new NotImplementedException();
         }
 
-        void IGenericDal<EntityLayer.Concrete.Process>.GetByID(int id)
+        public void GetByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetList()
         {
             throw new NotImplementedException();
         }
 
         List<EntityLayer.Concrete.Process> IGenericDal<EntityLayer.Concrete.Process>.GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        EntityLayer.Concrete.Process IGenericDal<EntityLayer.Concrete.Process>.GetByID(int id)
         {
             throw new NotImplementedException();
         }
