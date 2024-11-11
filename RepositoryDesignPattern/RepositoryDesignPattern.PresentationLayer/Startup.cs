@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RepositoryDesignPattern.DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace RepositoryDesignPattern.PresentationLayer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllersWithViews();
         }
 
