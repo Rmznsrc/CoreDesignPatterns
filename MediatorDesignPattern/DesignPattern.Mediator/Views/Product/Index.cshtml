@@ -27,12 +27,12 @@
             <td>@item.ProductCategory</td> 
             <td>
                 <a href="/Product/GetProduct/@item.ProductID" class="btn btn-outline-dark">Detaylar</a>
-                    <a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-outline-danger">Sil</a>
-                <a href="#" class="btn btn-outline-success">Güncelle</a>
+                <a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-outline-danger">Sil</a>
+                <a href="/Product/UpdateProduct/@item.ProductID" class="btn btn-outline-success">Güncelle</a>
             </td> 
         </tr>
     }
-    <a href="#" class="btn btn-outline-info">Yeni Ürün Girişi</a>
+        <a href="/Product/AddProduct/" class="btn btn-outline-info">Yeni Ürün Girişi</a>
 </table>
  
 </div>
