@@ -15,7 +15,12 @@ namespace DesignPattern.Mediator.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var values = _mediator.Send(new GetAllProductQuery());
+            var values = await _mediator.Send(new GetAllProductQuery());
+            return View(values);
+        }
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var values = await _mediator.Send(new GetProductByIDQuery(id));
             return View(values);
         }
     }
