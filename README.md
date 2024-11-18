@@ -8,3 +8,4 @@ Properties of design patterns,
 - Unit Of Work Design Pattern: Code First, Migration, PostgreSQL, Core 8
 - Repository Design Pattern: Code First, Migration, PostgreSQL, Core 5
 - Composite Design Pattern: Code First, Migration, MSSQL, Core 6
+- Mediator Design Pattern: Code First, Migration, MSSQL, Core 6
