@@ -8,9 +8,9 @@
             visitRoutes.Add(visitRoute);
         }
         public int VisitRouteCount { get=>visitRoutes.Count;  }
-        public Iterator<VisitRoute> CreateIterator()
+        public IIterator<VisitRoute> CreateIterator()
         {
-            throw new NotImplementedException();
+            return new VisitRouteIterator(this);
         }
     }
 }
