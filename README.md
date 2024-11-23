@@ -10,3 +10,5 @@ Properties of design patterns,
 - Composite Design Pattern: Code First, Migration, MSSQL, Core 6
 - Mediator Design Pattern: Code First, Migration, MSSQL, Core 6
 - Iterator Design Pattern: Core 6
+- Facade Design Pattern: Code First, Migration, MSSQL, Core 6
+- Decorator Design Pattern: Code First, Migration, MSSQL, Core 5
