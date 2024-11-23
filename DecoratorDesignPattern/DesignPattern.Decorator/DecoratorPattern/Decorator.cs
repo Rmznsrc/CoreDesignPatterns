@@ -10,7 +10,7 @@ namespace DesignPattern.Decorator.DecoratorPattern
             _notifier = notifier;
         }
 
-        public void CreateNotify(Notifier notifier)
+        virtual public void CreateNotify(Notifier notifier)
         {
             notifier.NotifierCreator = "Admin";
             notifier.NotifierSubject = "Toplantı";
