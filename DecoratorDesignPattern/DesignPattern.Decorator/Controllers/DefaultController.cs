@@ -6,28 +6,43 @@ namespace DesignPattern.Decorator.Controllers
 {
     public class DefaultController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(Message message)
         { 
-            Message message         = new Message();
-            message.MessageContent  = "Bu bir content mesajıdır.";
-            message.MessageSender   = "Admin IK";
-            message.MessageReceiver = "Herkes";
-            message.MessageSubject  = "Deneme yapıyoruz.";
-
+            
             CreateNewMessage createNewMessage = new CreateNewMessage(); 
             createNewMessage.SendMesssage(message);
             return View();
         }
+        [HttpGet]
         public IActionResult Index2()
         {
-            Message message = new Message();
-            message.MessageContent = "Bu bir Subject şifreli mesajıdır.";
-            message.MessageSender = "Team Lead";
-            message.MessageReceiver = "Herkes";
-            message.MessageSubject = "Merhaba";
+            return View();
+        }
+            [HttpPost]
+        public IActionResult Index2(Message message)
+        { 
             CreateNewMessage createNewMessage = new CreateNewMessage();
             EncryptoBySubjectDecorator encryptoBySubjectDecorator = new EncryptoBySubjectDecorator(createNewMessage);
             encryptoBySubjectDecorator.SendMessageByEncryptoSubject(message);
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Index3()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index3(Message message)
+        {
+            CreateNewMessage createNewMessage = new CreateNewMessage();
+            SubjectIDDecorator subjectIDDecorator = new SubjectIDDecorator(createNewMessage);
+            subjectIDDecorator.SendMessageIDSubject(message);
             return View();
         }
     }
